@@ -6,5 +6,5 @@ include_once 'AbstractSteen.class.php';
 
 class Steen extends AbstractSteen
 {
-   public $isDam = false; 
+    public $isDam = false;
 }
