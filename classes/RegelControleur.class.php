@@ -2,17 +2,21 @@
 
 namespace Dammen;
 
+use Dammen\IsGeldigeSpelerRegel;
+use Dammen\BevatSteenRegel;
+use Dammen\ZetIsBinnenBordRegel;
+
 class RegelControleur
 {
     public function isGeldigeZet($zet, $bord, $spelerAanDeBeurt)
     {
-        if (!$this->isGeldigeSpeler($spelerAanDeBeurt)) {
+        if (!IsGeldigeSpelerRegel::isGeldigeSpeler($spelerAanDeBeurt)) {
             return false;
         }
-        if (!$this->bevatSteen(new Positie($zet->vanPositie->x, $zet->vanPositie->y), $bord)) {
+        if (!BevatSteenRegel::bevatSteen(new Positie($zet->vanPositie->x, $zet->vanPositie->y), $bord)) {
             return false;
         }
-        if (!$this->zetIsBinnenBord($zet)) {
+        if (!ZetIsBinnenBordRegel::zetIsBinnenBord($zet)) {
             return false;
         }
         $positiesBeschikbareStenen = $this->vakkenVanBeschikbareStenen($bord, $spelerAanDeBeurt);
@@ -33,14 +37,6 @@ class RegelControleur
         }
     }
 
-    private function zetIsBinnenBord($zet)
-    {
-        if (!$this->positieIsBinnenBord($zet->vanPositie) || !$this->positieIsBinnenBord($zet->naarPositie)) {
-            return false;
-        }
-        return true;
-    }
-
     private function positieIsBinnenBord($positie)
     {
         if ($positie->x > 9 || $positie->x < 0) {
@@ -50,14 +46,6 @@ class RegelControleur
             return false;
         }
         return true;
-    }
-
-    private function isGeldigeSpeler($speler)
-    {
-        if ($speler === 0 || $speler === 1) {
-            return true;
-        }
-        return false;
     }
 
     private function bevatSteen($positie, $bord)
