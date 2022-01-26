@@ -2,7 +2,7 @@
 
 namespace Dammen;
 
-include_once 'AbstractSteen.class.php';
+use Dammen\AbstractSteen;
 
 class Dam extends AbstractSteen
 {

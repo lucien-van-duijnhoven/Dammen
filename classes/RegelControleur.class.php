@@ -99,7 +99,7 @@ class RegelControleur
         } else {
             $beweegRichting = 1;
         }
-        if ($bord->vakjes[$zet->naarPositie->y][$zet->naarPositie->x]->steen->isDam === true) {
+        if ($bord->vakjes[$zet->vanPositie->y][$zet->vanPositie->x]->steen->isDam === true) {
             foreach ($beschikbareVakken as $steenPositie) {
                 $naar = new Positie(($steenPositie->x + 1), ($steenPositie->y + $beweegRichting));
                 if ($this->positieIsBinnenBord($naar) && !$this->bevatSteen($naar, $bord)) {
@@ -141,7 +141,7 @@ class RegelControleur
         } else {
             $beweegRichting = 1;
         }
-        if ($bord->vakjes[$zet->naarPositie->y][$zet->naarPositie->x]->steen->isDam === true) {
+        if ($bord->vakjes[$zet->vanPositie->y][$zet->vanPositie->x]->steen->isDam === true) {
             foreach ($beschikbareVakken as $steenPositie) {
                 $naar = new Positie(($steenPositie->x + 2), ($steenPositie->y + ($beweegRichting * 2)));
                 $over = new Positie(($steenPositie->x + 1), ($steenPositie->y + $beweegRichting));
