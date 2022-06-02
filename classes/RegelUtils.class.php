@@ -2,7 +2,8 @@
 
 namespace Dammen;
 
-class RegelUtils {
+class RegelUtils 
+{
     static function positieIsBinnenBord($positie)
     {
         if ($positie->x > 9 || $positie->x < 0) {

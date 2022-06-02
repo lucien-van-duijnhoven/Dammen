@@ -20,7 +20,7 @@ class RegelControleur
     public function isGeldigeZet($zet, $bord, $spelerAanDeBeurt)
     {
         foreach ($this->rules as $rule) {
-            if (!$rule->check(['zet'=>$zet, 'bord'=>$bord, 'spelerAanDeBeurt'=>$spelerAanDeBeurt])) {
+            if (!$rule->check(['zet' => $zet, 'bord' => $bord, 'spelerAanDeBeurt' => $spelerAanDeBeurt])) {
                 return false;
             }
         }
