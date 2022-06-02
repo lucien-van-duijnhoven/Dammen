@@ -2,7 +2,7 @@
 
 namespace Dammen;
 
-abstract class AbstractSteen
+interface AbstractSteen
 {
-    abstract public function __construct($kleur);
+    public function __construct(string $kleur);
 }

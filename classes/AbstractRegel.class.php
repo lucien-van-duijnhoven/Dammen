@@ -2,7 +2,7 @@
 
 namespace Dammen;
 
-abstract class AbstractRegel
+interface AbstractRegel
 {
-    abstract public function check(array $args);
+    public function check(array $args): bool;
 }

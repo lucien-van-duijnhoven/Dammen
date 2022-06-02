@@ -4,7 +4,7 @@ namespace Dammen;
 
 use Dammen\AbstractSteen;
 
-class Dam extends AbstractSteen
+class Dam implements AbstractSteen
 {
     public $isDam = true;
 }
