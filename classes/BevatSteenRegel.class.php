@@ -3,12 +3,14 @@
 namespace Dammen;
 
 use Dammen\AbstractRegel;
+use Dammen\Zet;
+use Dammen\Bord;
 
 class BevatSteenRegel extends AbstractRegel
 {
-    static function bevatSteen($positie, $bord)
+    public function check(array $args)
     {
-        if (($bord->vakjes[$positie->y][$positie->x]->steen instanceof Steen)) {
+        if (($args['bord']->vakjes[$args['zet']->vanPositie->y][$args['zet']->vanPositie->x]->steen instanceof Steen)) {
             return true;
         }
         return false;

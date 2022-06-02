@@ -3,12 +3,13 @@
 namespace Dammen;
 
 use Dammen\AbstractRegel;
+use Dammen\RegelUtils;
 
 class ZetIsBinnenBordRegel extends AbstractRegel
 {
-    static function zetIsBinnenBord($zet)
+    public function check(array $args)
     {
-        if (!self::positieIsBinnenBord($zet->vanPositie) || !self::positieIsBinnenBord($zet->naarPositie)) {
+        if (!RegelUtils::positieIsBinnenBord($args['zet']->vanPositie) || !RegelUtils::positieIsBinnenBord($args['zet']->naarPositie)) {
             return false;
         }
         return true;

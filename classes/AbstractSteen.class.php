@@ -2,12 +2,7 @@
 
 namespace Dammen;
 
-class AbstractSteen
+abstract class AbstractSteen
 {
-    public $kleur;
-
-    public function __construct($kleur)
-    {
-        $this->kleur = $kleur;
-    }
+    abstract public function __construct($kleur);
 }

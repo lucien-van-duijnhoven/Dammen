@@ -6,9 +6,9 @@ use Dammen\AbstractRegel;
 
 class IsGeldigeSpelerRegel extends AbstractRegel
 {
-    static function isGeldigeSpeler($speler)
+    public function check(array $args)
     {
-        if ($speler === 0 || $speler === 1) {
+        if ($args['spelerAanDeBeurt'] === 0 || $args['spelerAanDeBeurt'] === 1) {
             return true;
         }
         return false;

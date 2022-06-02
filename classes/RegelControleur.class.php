@@ -8,16 +8,21 @@ use Dammen\ZetIsBinnenBordRegel;
 
 class RegelControleur
 {
+    private array $rules;
+
+    public function __construct()
+    {
+        $this->rules[] = new isGeldigeSpelerRegel();
+        $this->rules[] = new bevatSteenRegel();
+        $this->rules[] = new zetIsBinnenBordRegel();
+    }
+
     public function isGeldigeZet($zet, $bord, $spelerAanDeBeurt)
     {
-        if (!IsGeldigeSpelerRegel::isGeldigeSpeler($spelerAanDeBeurt)) {
-            return false;
-        }
-        if (!BevatSteenRegel::bevatSteen(new Positie($zet->vanPositie->x, $zet->vanPositie->y), $bord)) {
-            return false;
-        }
-        if (!ZetIsBinnenBordRegel::zetIsBinnenBord($zet)) {
-            return false;
+        foreach ($this->rules as $rule) {
+            if (!$rule->check(['zet'=>$zet, 'bord'=>$bord, 'spelerAanDeBeurt'=>$spelerAanDeBeurt])) {
+                return false;
+            }
         }
         $positiesBeschikbareStenen = $this->vakkenVanBeschikbareStenen($bord, $spelerAanDeBeurt);
         $mogelijkeSlagen = $this->mogelijkeSlagen($positiesBeschikbareStenen, $bord, $spelerAanDeBeurt, $zet);
