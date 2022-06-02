@@ -2,7 +2,7 @@
 
 namespace Dammen;
 
-class RegelUtils 
+class RegelUtils
 {
     static function positieIsBinnenBord($positie)
     {
