@@ -13,9 +13,9 @@ class UserInterface
         }
         print_r("$spelerKleur is aan de beurt" . PHP_EOL);
         print_r("welke steen wil je verplaatsen?" . PHP_EOL);
-        $vanPositieInput = readline();
+        $vanPositieInput = readline("Voer eerst de in x en dan y (3 - 7):");
         print_r("waar wil je hem naartoe verplaatsen?" . PHP_EOL);
-        $naarPositieInput = readline();
+        $naarPositieInput = readline("Voer eerst de in x en dan y (3 - 7):");
         $vanPositie = new Positie(intval(substr($vanPositieInput, 0, 1)), intval(substr($vanPositieInput, -1, 1)));
         $naarPositie = new Positie(intval(substr($naarPositieInput, 0, 1)), intval(substr($naarPositieInput, -1, 1)));
         return new Zet($vanPositie, $naarPositie);
